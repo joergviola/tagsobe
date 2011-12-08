@@ -15,4 +15,16 @@ public class Application extends Controller {
 		return ok(download.render());
 	}
 
+	public static Result disclaimer() {
+		return ok(disclaimer.render());
+	}
+
+	public static Result about() {
+		return ok(about.render());
+	}
+
+	public static Result help() {
+		return ok(help.render());
+	}
+
 }

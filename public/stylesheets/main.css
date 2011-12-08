@@ -71,9 +71,15 @@ h1 {
 }
 
 a {
-	color:black;
+	color:white;
+	text-decoration: none;	
 }
 
-a:hover {
+#content a {
+	color:black;
+	text-decoration: underline;	
+}
+
+#content a:hover {
 	color:#bbb;
 }

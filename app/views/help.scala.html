@@ -1,0 +1,75 @@
+@()
+
+@main("tagsobe - Help") {
+
+
+<h1>Help</h1>
+
+<h1>Your Application</h1>
+
+<p>
+To get comparable results from very different web technologies, 
+we first fix the use case. We do not reinvent the wheel, but use 
+the hotel booking example well-known to java folks.
+</p>
+
+<p>
+It is simple to implement but incorporates a landing page, 
+hotel search, user registration, a hotel detail page and the 
+actual booking as a transactional database write operation. 
+Thus it is "simple, but not too simple".
+</p>
+  
+<h1>The Test Script</h1>
+
+<p>
+We of course want an objective, quantifiable result. 
+Therefore we run a script against your solution, requesting pages 
+and benchmarking as well as checking the result. 
+We nevertheless were faced with the requirement to write one 
+single script being able to robustly interact with web apps of 
+different technology. There are, as you know well, subtle 
+details of state and session management that vary from tech to tech. 
+Classical load testing tools like e.g. JMeter thus have to be tuned 
+to the app under test.
+</p>
+
+<p>
+Our tagbrowser is a very simple layer on top of Apaches http components 
+and the JSoup HTML parser. At the expense of parsing the pages your 
+solution delivers, it provides a way to interact with the app as the 
+user does: By clicking on links or submit buttons with ever handling 
+concrete HTTP details like URLs or cookies.
+</p>
+
+<p>
+Therefore we provide one tagbrowser-Script that is capable of 
+interacting with solutions of each technology. You can download 
+this script in advance to test whether your app conformes to the 
+test requirements.
+</p>
+
+<h1>Our Test Setup</h1>
+
+<p>
+After you submit your solution, we do install it on an EC2 instance. 
+This instance is preconfigured with an PHP-enabled Apache, a tomcat, 
+a mysql instance and the test script. Being of course unusual and 
+not production-like, this setup eliminates network effects. We then 
+run the script, check the database final state and get the benchmark 
+results.
+</p>
+
+<h1>Future Plans</h1>
+
+<p>
+We hope this site to be continuously updated with better solutions 
+and newer technologies. 
+</p>
+
+<p>
+If we receive lots of solutions, we consider automating the checkout, 
+install and test procedure.
+</p>
+
+}

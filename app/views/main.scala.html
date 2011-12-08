@@ -1,12 +1,18 @@
 @(title: String)(content: Html)
 
 @page(title) {
+  <a href="/">
   <h1>tagsobe</h1>
-  Technology Agnostic Social Benchmarking 
+  Technology Agnostic Social Benchmarking
+  </a> 
 }{
     
     @content
     
 }{
-  Disclaimer - About us - Help
+  <a href="@routes.Application.disclaimer()">Disclaimer</a>
+  -
+  <a href="@routes.Application.about()">About us</a>
+  -
+  <a href="@routes.Application.help()">Help</a>
 }
