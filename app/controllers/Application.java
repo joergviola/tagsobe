@@ -12,7 +12,7 @@ public class Application extends Controller {
 	}
 
 	public static Result download() {
-		return ok(index.render());
+		return ok(download.render());
 	}
 
 }
