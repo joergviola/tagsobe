@@ -1,0 +1,71 @@
+
+@font-face { font-family: Graublau; src: url('/assets/stylesheets/GraublauWeb.otf'); } 
+
+body, html {
+	margin: 0px;
+	background: black;
+	font-family: Lucida Grande, sans-serif;
+}
+
+h1 {
+	font-family: Graublau, sans-serif;
+	color: #bbb;
+}
+
+#content {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#contentWrapper {
+	background: white;
+}
+#headerWrapper {
+	color: white;
+	overflow: auto;
+}
+
+#footerWrapper {
+	color: white;
+	overflow: auto;
+}
+
+#footer {
+	text-align: center;
+}
+
+#tecontainer {
+	position: relative;
+	width: 100%;
+	height: 100px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+
+.center {
+	margin: auto;
+}
+
+.box {
+	border: 1px solid black;
+	width: 32%;
+	height: 200px;
+	margin: 3px;
+	display: table;
+}
+
+.boxcontent {
+	padding: 10px;
+	display: table-cell;
+	vertical-align: middle;
+}
