@@ -75,6 +75,29 @@ a {
 	text-decoration: none;	
 }
 
+input[type=text] {
+	border: 1px solid black;
+	font-family: Lucida Grande, sans-serif;
+	font-size: 100%;
+	padding: 5px;
+	width: 90%;
+}
+input[type=submit] {
+	color: white;
+	font-family: Lucida Grande, sans-serif;
+	font-size: 100%;
+	padding: 5px 30px 5px 30px;
+	background-image: linear-gradient(top, #fff 25%, #DFE7E8 100%);
+	background-image: -o-linear-gradient(top, #fff 25%, #DFE7E8 100%);
+	background-image: -moz-linear-gradient(top, #fff 25%, #DFE7E8 100%);
+	background-image: -webkit-linear-gradient(top, #fc6c47 0%, #F5542C 100%);
+	background-image: -ms-linear-gradient(top, #fff 25%, #DFE7E8 100%);
+	-moz-border-radius:6px; /* Firefox */
+	-webkit-border-radius:6px; /* Safari, Chrome */
+	-khtml-border-radius:6px; /* Konqueror */
+	border-radius:6px; /* CSS3 */
+}
+
 #content a {
 	color:black;
 	text-decoration: underline;	

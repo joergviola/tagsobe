@@ -1,4 +1,6 @@
-@()
+@(contribution: Form[models.Contribution])
+
+@import helper._
 
 @main("tagsobe") {
     
@@ -14,7 +16,8 @@
 </div>
 <p>Let's find out:</p>
 <p>
-Create a sample Hotel Booking App in your favorite technology, 
+Create a sample <a href="http://richweb.springsource.org/swf-booking-faces/spring/main" target="_blank">Hotel Booking App</a> 
+in your favorite technology, 
 benchmark it on your machine and tell us about it. 
 We'll verify it on a standard setup and publish the results. 
 <br>
@@ -60,6 +63,11 @@ Start your solution
 <div class="left box">
 <span class="boxcontent">
 Tell us your GitHub Repo:
+<form action="@routes.Application.contribute()" method="POST">
+<input class="right" type="text" name="repo">
+<br>
+<input class="right" type="submit" value="Send!">
+</form>
 </span>
 </div>
 <div class="clear"></div>

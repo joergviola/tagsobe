@@ -4,6 +4,7 @@
 
 # Home page
 GET     /                           controllers.Application.index()
+POST    /contribute                 controllers.Application.contribute()
 GET     /download                   controllers.Application.download()
 GET     /disclaimer                 controllers.Application.disclaimer()
 GET     /about                      controllers.Application.about()
