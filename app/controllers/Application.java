@@ -23,10 +23,10 @@ public class Application extends Controller {
 		Contribution contribution = form.bindFromRequest().get();
 
 		Mail email = new Mail();
-		email.setFrom("user@gmail.com");
-		email.setSubject("TestMail");
+		email.setFrom("viola@objectcode.de");
+		email.setSubject("tagsobe contribution");
 		email.setMsg(mail.render(contribution));
-		email.addTo("foo@bar.com");
+		email.addTo("viola@objectcode.de");
 		email.send();
 
 		return ok(thanks.render());
