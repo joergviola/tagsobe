@@ -1,9 +1,13 @@
 package controllers;
 
 import models.Contribution;
+
+import org.apache.commons.mail.EmailException;
+
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import util.Mail;
 
 import views.html.*;
 
@@ -14,9 +18,17 @@ public class Application extends Controller {
 		return ok(index.render(cform));
 	}
 
-	public static Result contribute() {
+	public static Result contribute() throws EmailException {
 		Form<Contribution> form = form(Contribution.class);
 		Contribution contribution = form.bindFromRequest().get();
+
+		Mail email = new Mail();
+		email.setFrom("user@gmail.com");
+		email.setSubject("TestMail");
+		email.setMsg(mail.render(contribution));
+		email.addTo("foo@bar.com");
+		email.send();
+
 		return ok(thanks.render());
 	}
 
