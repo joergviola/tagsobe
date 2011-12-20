@@ -1,20 +1,79 @@
-@(contribution: Form[models.Contribution])
+@(contribution: Form[models.Contribution], ranking: List[Probe])
 
 @import helper._
 
 @main("tagsobe") {
     
-<p>Which web technology is most performant?</p>
-<div id="tecontainer">
-   @tech(60,  10, "node.js") 
-   @tech(10, 100, "PHP") 
-   @tech(50, 190, "Ruby") 
-   @tech( 0, 250, "Spring") 
-   @tech(80, 280, "Play") 
-   @tech(40, 380, "Perl") 
-   @tech(50, 520, "Wicket") 
+<h1>Which web technology is most performant?</h1>
+
+<div style="position: absolute;">
+<div style="position: relative; top: 100px; left: 400px;">
+<a href="http://tagsobe.wordpress.com/">
+	<img src="@routes.Assets.at("images/blog.png")">
+</a>
 </div>
-<p>Let's find out:</p>
+</div>
+
+<table border=0 cellspacing="0">
+	<tr>
+		<th>rank</th>
+		<th>technology</th>
+		<th>developer</th>
+		<th>benched</th>
+		<th>maxTP</th>
+		<th>scaling</th>
+		<th>&nbsp;</th>
+	</tr>
+@for(p <- ranking) {
+	<tr>
+		<td>@p.rank</td>
+		<td><a href="@p.techpage">@p.title</a></td>
+		<td><a href="@p.repository">@p.developer</a></td>
+		<td>@p.date.format("MM/dd/yyyy")</td>
+		<td>@p.maxTP</td>
+		<td>@p.scaling</td>
+		<td><a href="/result/@p.name/all">more...</a></td>
+	</tr>
+} 
+	<tr>
+		<td>?</td>
+		<td>Ruby on Rails</td>
+		<td colspan="5">not yet applied...</td>
+	</tr>
+	<tr>
+		<td>?</td>
+		<td>Wicket</td>
+		<td colspan="5">not yet applied...</td>
+	</tr>
+	<tr>
+		<td>?</td>
+		<td>JSF/CDI</td>
+		<td colspan="5">not yet applied...</td>
+	</tr>
+	<tr>
+		<td>?</td>
+		<td>PHP</td>
+		<td colspan="5">not yet applied...</td>
+	</tr>
+	<tr>
+		<td>?</td>
+		<td>node.js</td>
+		<td colspan="5">not yet applied...</td>
+	</tr>
+	<tr>
+		<td>?</td>
+		<td>Play</td>
+		<td colspan="5">not yet applied...</td>
+	</tr>
+	<tr>
+		<td>?</td>
+		<td>Echo</td>
+		<td colspan="5">not yet applied...</td>
+	</tr>
+</table>
+
+<h1>Join in!</h1>
+
 <p>
 Create a sample <a href="http://richweb.springsource.org/swf-booking-faces/spring/main" target="_blank">Hotel Booking App</a> 
 in your favorite technology, 
@@ -24,28 +83,6 @@ We'll verify it on a standard setup and publish the results.
 Promote your favorite technology and your own skills!
 </p>
 
-<div class="left">
-<p>First solutions under test! - Come back for results in:</p>
-</div>
-
-<script language="JavaScript">
-TargetDate = "12/23/2011 5:00 AM";
-BackColor = "white";
-ForeColor = "#bbb";
-CountActive = true;
-CountStepper = -1;
-LeadingZero = true;
-DisplayFormat = "%%D%%D%%H%%H%%M%%M%%S%%S";
-FinishMessage = "It is finally here!";
-</script>
-
-<div class="right">
-<h1>
-<script language="JavaScript" src="@routes.Assets.at("javascripts/countdown.js")"></script>
-</h1>
-</div>
-<div class="clear"></div>
-<p>Or - better - join in:</p>
 <div class="left box">
 <span class="boxcontent">
 <a href="@routes.Application.download()">Download our test script</a>
@@ -56,7 +93,10 @@ FinishMessage = "It is finally here!";
 Start your solution
 <ul>
   <li>from scratch</li>
-  <li>or fork one of ours on GitHub</li> 
+  <li>
+  	or fork one of ours 
+  	<a href="https://github.com/joergviola" target="_blank">on GitHub</a>
+  </li> 
 </ul>
 </span>
 </div>

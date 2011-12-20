@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Contribution;
+import models.Probe;
 
 import org.apache.commons.mail.EmailException;
 
@@ -15,7 +16,7 @@ public class Application extends Controller {
 
 	public static Result index() {
 		Form<Contribution> cform = form(Contribution.class);
-		return ok(index.render(cform));
+		return ok(index.render(cform, Probe.ranking()));
 	}
 
 	public static Result contribute() throws EmailException {

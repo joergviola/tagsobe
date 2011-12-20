@@ -16,4 +16,8 @@ public class Stat {
 		this.average = average;
 	}
 
+	public int getTP() {
+		return 1000 * clients / average;
+	}
+
 }

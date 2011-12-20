@@ -12,11 +12,10 @@ import views.html.*;
 
 public class ShowResult extends Controller {
 
-	public static Result show(String name) {
+	public static Result show(String name, String page) {
 		Probe probe = Probe.findByName(name);
-		String page = "all";
 		List<Stat> stats = probe.getStatForPage(page);
 		Graph graph = new Graph(stats);
-		return ok(show.render(probe, graph));
+		return ok(show.render(probe, graph, page));
 	}
 }

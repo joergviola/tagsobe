@@ -1,9 +1,17 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Probe {
+
+	public static List<Probe> ranking() {
+		ArrayList<Probe> result = new ArrayList<Probe>();
+		result.add(springJsp());
+		return result;
+	}
 
 	public static Probe findByName(String name) {
 		if ("spring-jsp".equals(name))
@@ -12,12 +20,28 @@ public class Probe {
 	}
 
 	public String name;
+	public String title;
+	public String techpage;
+	public String blogpage;
+	public String developer;
+	public String repository;
+	public Date date;
 	public int rank;
 	private Stat[] stats;
+	public int maxTP;
+	public int scaling;
 
 	private static Probe springJsp() {
 		Probe p = new Probe();
-		p.name = "Spring JSP";
+		p.name = "spring-jsp";
+		p.title = "Spring JSP";
+		p.techpage = "http://www.springsource.org/spring-framework";
+		p.blogpage = "http://tagsobe.wordpress.com/category/spring/";
+		p.developer = "Joerg Viola";
+		p.repository = "https://github.com/joergviola/tagsobe-spring-jsp";
+		Calendar cal = Calendar.getInstance();
+		cal.set(2011, 11, 21);
+		p.date = cal.getTime();
 		p.rank = 1;
 		p.stats = new Stat[] { new Stat("1.", 1, 7, 6, 0),
 				new Stat("2.", 1, 7, 3, 2), new Stat("3.", 1, 6, 4, 3),
@@ -99,10 +123,25 @@ public class Probe {
 				new Stat("5.", 40, 1278, 949, 0),
 				new Stat("6.", 40, 1479, 974, 1),
 				new Stat("7.", 40, 2832, 1129, 0),
-				new Stat("all", 40, 1147, 1099, 0),
-
-		};
+				new Stat("all", 40, 1147, 1099, 0), };
+		p.evaluate();
 		return p;
+	}
+
+	public void evaluate() {
+		List<Stat> stats = getStatForPage("all");
+		int lastAv = 0;
+		int lastClients = -1;
+		double sc = 0.0;
+		for (Stat stat : stats) {
+			maxTP = Math.max(maxTP, stat.getTP());
+			if (lastClients > 0)
+				sc += ((double) (stat.average - lastAv))
+						/ (stat.clients - lastClients);
+			lastAv = stat.average;
+			lastClients = stat.clients;
+		}
+		scaling = (int) sc / stats.size();
 	}
 
 	public List<Stat> getStatForPage(String page) {
@@ -114,4 +153,5 @@ public class Probe {
 		}
 		return result;
 	}
+
 }

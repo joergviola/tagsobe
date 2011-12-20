@@ -7,9 +7,31 @@ body, html {
 	font-family: Lucida Grande, sans-serif;
 }
 
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #000;
+	padding: 5px;
+}
+
+th {
+	background-color: #ddd;
+}
+
 h1 {
 	font-family: Graublau, sans-serif;
 	color: #bbb;
+	font-size: 35px;
+}
+
+.big {
+	color: #bbb;
+	font-size: 35px;
+	margin-bottom: -10px;
+	vertical-align: text-bottom;
 }
 
 #content {

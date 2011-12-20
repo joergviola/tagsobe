@@ -10,7 +10,7 @@ GET     /disclaimer                 controllers.Application.disclaimer()
 GET     /about                      controllers.Application.about()
 GET     /help                       controllers.Application.help()
 
-GET     /result/*name              controllers.ShowResult.show(name)
+GET     /result/*name/*page         controllers.ShowResult.show(name, page)
 
 
 # Map static resources from the /public folder to the /assets URL path

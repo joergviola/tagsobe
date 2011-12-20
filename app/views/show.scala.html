@@ -1,11 +1,41 @@
-@(probe: Probe, g: Graph)
+@(probe: Probe, g: Graph, page: String)
 
 @main("tagsobe - Probe result") {
     
-<h1>@probe.name</h1>
+<h1>@probe.title</h1>
   
 <p>  
-This is the average performance graph for this technology:
+<table border="0" cellpadding="10">
+	<tr valign="bottom">
+		<td>This technology is rank:</td>
+		<td><span class="big">@probe.rank</span> of 1</td>
+	</tr>
+	<tr valign="bottom">
+		<td>Maximum throughput is:</td>
+		<td><span class="big">@probe.maxTP</span> pages/second</td>
+	</tr>
+	<tr valign="bottom">
+		<td>Scaling factor is:</td>
+		<td><span class="big">@probe.scaling</span> ms/client</td>
+	</tr>
+</table>
+<br>
+Read more about it on the <a href="@probe.blogpage">tagsobe blog</a>
+ 
+</p>
+ 
+<p>  
+This is the average performance graph for:
+<select onchange="javascript:window.location.href=this.options[this.selectedIndex].value;">
+	<option value="all" @if("all"==page){selected}>all pages</option>
+	<option value="1." @if("1."==page){selected}>page 1: home</option>
+	<option value="2." @if("2."==page){selected}>page 2: search result</option>
+	<option value="3." @if("3."==page){selected}>page 3: hotel detail</option>
+	<option value="4." @if("4."==page){selected}>page 4: login form</option>
+	<option value="5." @if("5."==page){selected}>page 5: booking form</option>
+	<option value="6." @if("6."==page){selected}>page 6: confirm</option>
+	<option value="7." @if("7."==page){selected}>page 7: home</option>
+</select>
 </p>
  
 <img src="https://chart.googleapis.com/chart?cht=s&chd=t2:@g.xvals()|@g.yvals()|@g.yerrs()&chxt=x,y&chs=600x500&chxr=0,0,@g.xmax()|1,0,@g.ymax()&chm=c,FF0000,0,,10,0.1|D,FF8888,1,,1,1|E,000000,2:1,,1:20"> 
