@@ -1,0 +1,12 @@
+@(probe: Probe, g: Graph)
+
+@main("tagsobe - Probe result") {
+    
+<h1>@probe.name</h1>
+  
+<p>  
+This is the average performance graph for this technology:
+</p>
+ 
+<img src="https://chart.googleapis.com/chart?cht=s&chd=t2:@g.xvals()|@g.yvals()|@g.yerrs()&chxt=x,y&chs=600x500&chxr=0,0,@g.xmax()|1,0,@g.ymax()&chm=c,FF0000,0,,10,0.1|D,FF8888,1,,1,1|E,000000,2:1,,1:20"> 
+}
