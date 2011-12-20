@@ -7,5 +7,7 @@ cd probe
 ./install.sh | tee ~/log/install.log
 
 cd
-java -jar tagbrowser/dist/tagsobe.jar 1,2,3,4,5,7,10,12,15,17,20,25 100 `cat probe/probe.url` | tee ~/log/run.log 
+java -Dfmt=java -jar tagbrowser/dist/tagsobe.jar `cat probe/probe.url` | tee ~/log/run.log
+
+mail -s "tagsobe result" viola@objectcode.de <  ~/log/run.log
 
