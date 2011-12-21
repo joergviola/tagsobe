@@ -6,14 +6,6 @@
     
 <h1>Which web technology is most performant?</h1>
 
-<div style="position: absolute;">
-<div style="position: relative; top: 100px; left: 400px;">
-<a href="http://tagsobe.wordpress.com/">
-	<img src="@routes.Assets.at("images/blog.png")">
-</a>
-</div>
-</div>
-
 <table border=0 cellspacing="0">
 	<tr>
 		<th>rank</th>
@@ -27,8 +19,8 @@
 @for(p <- ranking) {
 	<tr>
 		<td>@p.rank</td>
-		<td><a href="@p.techpage">@p.title</a></td>
-		<td><a href="@p.repository">@p.developer</a></td>
+		<td><a href="@p.techpage" target="_blank">@p.title</a></td>
+		<td><a href="@p.repository" target="_blank">@p.developer</a></td>
 		<td>@p.date.format("MM/dd/yyyy")</td>
 		<td>@p.maxTP</td>
 		<td>@p.scaling</td>
