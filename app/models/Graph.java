@@ -6,6 +6,7 @@ public class Graph {
 	private final List<Stat> stats;
 	private int xmax;
 	private int ymax;
+	private int tpmax;
 
 	static class CoordBuilder {
 		StringBuilder b = new StringBuilder();
@@ -27,6 +28,7 @@ public class Graph {
 		for (Stat stat : stats) {
 			xmax = Math.max(xmax, stat.clients);
 			ymax = Math.max(ymax, stat.average);
+			tpmax = Math.max(tpmax, stat.getTP());
 		}
 	}
 
@@ -54,12 +56,24 @@ public class Graph {
 		return b.toString();
 	}
 
+	public String tps() {
+		CoordBuilder b = new CoordBuilder();
+		for (Stat stat : stats) {
+			b.append(stat.getTP() * 100 / tpmax);
+		}
+		return b.toString();
+	}
+
 	public int xmax() {
 		return xmax;
 	}
 
 	public int ymax() {
 		return ymax;
+	}
+
+	public int tpmax() {
+		return tpmax;
 	}
 
 }
