@@ -63,6 +63,53 @@ run the script, check the database final state and get the benchmark
 results.
 </p>
 
+<h1>Result interpretation and ranking</h1>
+
+<p>
+The test script executes a sequence of tests on the freshly installed
+application. Each <em>test</em> is done with an increased number of parallel
+clients. At the beginning of each test, one client is doing a full scan
+of the application. After that, the number of parallel clients are 
+performing one scan each, without ramp-up time. A <em>scan</em> is performing a 
+number of walkthroughs in sequence, each <em>walkthrough</em> being a sequential
+number of <em>requests</em> to the application, parsing the response and 
+constructing the next request. 
+</p>
+
+<p>
+During each test, for each page and for all pages together, the following 
+numbers are measured:
+<ul>
+<li>the average of the response times</li>
+<li>the <a href="http://en.wikipedia.org/wiki/Algorithms_for_calculating_variance">
+standard deviation</a> of the response times</li>
+ <li>the average time used to parse the responses
+</ul> 
+Response times thus are the primary number for performance assessment.
+Their deviation allows to asses result confidence and the parse times allow to 
+estimate whether the dynamic request calculation required to do technology 
+agnostic benchmarking is not invalidating load results. 
+</p>
+
+<p><a name="maxTP"></a>
+At this point, a series of average response times versus client counts is on hand.
+One usually calculates the throughput (the number of pages that can be delivered
+in one second) as the number of clients divided by the average response time.
+The thoughput usually has a sharp peak at relatively low lient numbers. This peak
+denotes the number of clients that can be served without waiting for resources.
+<em>We take this maximum throughput, <b>maxTP</b>, as the primary indiator for performance 
+ranking.</em>
+</p>
+
+<p><a name="scaling"></a>
+Another interesting behaviour of the application is how it does scale in terms of
+response times when additional clients are requesting pages beyond the maximum 
+throughput barrier. We simply calculate the number of microseconds an additional 
+client causes in average to get some feeling about client <b>scaling</b>. This of course 
+has nothing to do with scaling with the number of CPU nodes. 
+</p>
+
+
 <h1>Future Plans</h1>
 
 <p>
