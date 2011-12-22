@@ -11,11 +11,11 @@
 		<td><span class="big">@probe.rank</span> of 1</td>
 	</tr>
 	<tr valign="bottom">
-		<td>Maximum throughput is:</td>
+		<td>Maximum throughput <a href="/help#maxTP">(?)</a> is:</td>
 		<td><span class="big">@probe.maxTP</span> pages/second</td>
 	</tr>
 	<tr valign="bottom">
-		<td>Scaling factor is:</td>
+		<td>Scaling factor <a href="/help#scaling">(?)</a> is:</td>
 		<td><span class="big">@probe.scaling</span> ms/client</td>
 	</tr>
 </table>
@@ -37,6 +37,7 @@ This is the average performance graph for:
 	<option value="7." @if("7."==page){selected}>page 7: home</option>
 </select>
 </p>
- 
-<img src="https://chart.googleapis.com/chart?cht=lxy&chd=t4:@g.xvals()|@g.yvals()|@g.xvals()|@g.tps()&chxt=x,y&chs=600x400&chxr=0,0,@g.xmax()|1,0,@g.ymax()|4,0,@g.tpmax()&chm=c,FF0000,0,,10,0.1|c,0000FF,1,,10,0.2|D,FF8888,0,,1,1|D,8888FF,1,,1,1&chxt=x,y,x,y,r,r&chxl=2:|Clients|3:|Response time|5:|Throughput&chxp=2,100|3,100|5,100"> 
+<center>
+<img src="https://chart.googleapis.com/chart?cht=lxy&chd=t4:@g.xvals()|@g.yvals()|@g.xvals()|@g.tps()&chxt=x,y&chs=600x400&chxr=0,0,@g.xmax()|1,0,@g.tpmax()|4,0,@g.ymax()&chm=c,FF0000,0,,10,0.1|c,0000FF,1,,10,0.2|D,FF8888,0,,1,1|D,8888FF,1,,1,1&chxt=x,y,x,y,r,r&chxl=2:|Clients|3:|Throughput|5:|Response time&chxs=3,0000FF,15|5,FF0000,15&chxp=2,100|3,100|5,100">
+</center> 
 }
